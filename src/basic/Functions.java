@@ -1,3 +1,5 @@
+package basic;
+
 public class Functions {
 
     // La declaración de las funciones deben realizarse a nivel de la clase

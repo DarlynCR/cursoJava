@@ -1,3 +1,5 @@
+package basic;
+
 import java.util.Scanner;
 
 public class ControlStructures {
@@ -207,6 +209,28 @@ public class ControlStructures {
         System.out.println("Impresión bucle FOR:");
         for (int j = 1; j <= 10; j++) {
             printSOS();
+        }
+
+        /*SENTENCIA FOREACH
+        *Estructura:
+            for (tipoDato Elemento : colección){
+                //instruccciones
+            }
+
+        *No se tiene control de i, el for itera y asigna el valor del elemento
+        * */
+
+        String[] androidVersions = new String[17];
+
+        androidVersions[0] = "Apple Pie";
+        androidVersions[1] = "Bannana Bread";
+        androidVersions[2] = "Cupcake";
+        androidVersions[3] = "Donut";
+
+        System.out.println("impresión BUCLE FOREACH");
+
+        for (String k: androidVersions) {
+            System.out.println(k);
         }
 
     }
