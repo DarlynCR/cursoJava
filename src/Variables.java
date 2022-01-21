@@ -6,7 +6,7 @@ public class Variables {
          - Se deben comenzar los nombres de las variables con una letra, $ "_"
          - Usar Lower Camel Case para su declaración
          - Letras posteriores pueden ser $ "_"
-         - Las constantes se escriben en mayúscula y contienen "_"*/
+         - Las constantes se escriben en mayúscula y contienen "_" como separación*/
 
        /*Declaración: keyWord nombreVariable = valor; se inicializa la variable
         A partir de Java 10, se infieren los tipos de datos, se imite el keyWord y se utilizar var

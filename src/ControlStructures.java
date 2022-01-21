@@ -1,4 +1,9 @@
+import java.util.Scanner;
+
 public class ControlStructures {
+
+    // variable global para el ejemplo de la sentencia while
+    static boolean isTurnOnLight = false;
 
     public static void main(String[] args) {
 
@@ -126,6 +131,105 @@ public class ControlStructures {
         }
 
 
+        // ESTRUCTURAS REPETITIVAS - BUCLES
+
+        /*BUCLE WHILE
+
+        Estructura do-while:
+        *Se ejecutan primero las instrucciones, hasta que la condición no se cumpla,
+        la diferencia con el while, es que sus instrucciones se ejecutan al menos 1 vez.
+
+        do {
+            //instrucciones
+        } while (condición);
+
+        Estructura while:
+        *Mientras que la condición se cumpla, se ejecutan las instrucciones
+
+        while (condición) {
+            //instrucciones
+        }
+
+        * */
+
+        // Ejemplo do-while
+
+        int response = 0;
+
+        do {
+            System.out.println("Selecciona la opción deseada:");
+            System.out.println("1.Movies");
+            System.out.println("2.Series");
+            System.out.println("0.Salir");
+
+            Scanner sc = new Scanner(System.in);
+            response = Integer.valueOf(sc.nextLine());
+
+            switch (response){
+                case 0:
+                    System.out.println("Gracias por visitarnos");
+                    break;
+                case 1:
+                    System.out.println("Movies");
+                    break;
+                case 2:
+                    System.out.println("Series");
+                    break;
+                default:
+                    System.out.println("Selecciona una opción correcta");
+            }
+        } while (response != 0);
+
+        System.out.println("Se terminó el programa");
+
+
+        //Ejemplo while
+        turnOnOffLight();
+
+        /*if (isTurnOnLight) {
+            printSOS();
+        }*/
+
+        int i = 1;
+        System.out.println("Impresión bucle WHILE:");
+        while (isTurnOnLight && i <=10){
+            printSOS();
+            i++; // Se ejecutará 10 veces, se pone contador dependiendo del escenario
+        }
+
+      /*BUCLE FOR
+        for (inicialización; condición; incremento){
+            //instrucciones
+        }
+       Mientras la condición se cumpla el for seguirá iterando.
+       Una forma más sencilla de hacer el while
+      **/
+        System.out.println("Impresión bucle FOR:");
+        for (int j = 1; j <= 10; j++) {
+            printSOS();
+        }
 
     }
+
+    public static void printSOS(){ // Función para el ejemplo de la sentencia While
+        System.out.println(". . . _ _ _ . . .");
+    }
+
+    public static boolean turnOnOffLight(){
+      /*  if (isTurnOnLight){
+            isTurnOnLight = false;
+        }else{
+            isTurnOnLight = true;
+        }*/
+
+        // OPERADOR TERNEARIO -> en vez del if anterior
+        // Cuando a una misma variable se le realizan varias asignaciones en un IF
+        //  variable = (condición)?valorRegresoIF:valordeRegresoELSE;
+
+        isTurnOnLight = (isTurnOnLight)?false:true;
+        return isTurnOnLight;
+
+    }
+
+
 }
