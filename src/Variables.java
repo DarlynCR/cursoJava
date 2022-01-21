@@ -77,6 +77,6 @@ public class Variables {
         int nI = n; // casteo automático
 
         System.out.println(nI);
-        System.out.println(c);
+
     }
 }
