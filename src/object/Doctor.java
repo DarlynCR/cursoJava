@@ -3,22 +3,31 @@ package object;
 public class Doctor {
 
     // Propiedades
-    static int id = 0; //Autoincrementable
+    int id;
     String name;
     String speciality;
-    static int valor =0;
+    static int numberIncrement =0;
     //Método constructor
-    Doctor(){
-        System.out.println("Construyendo el objeto Doctor");
-    }
-
     Doctor(String name){
-        System.out.println("El nombre del doctor asignado es: " + name);
+        this.name = name;
+        System.out.println("Construyendo el objeto Doctor - constructor 1");
+        id = ++numberIncrement;
+    }
+    //Método constructor que recibe 2 parámetros
+    Doctor(String name,String speciality){
+        this.name = name;
+        this.speciality = speciality;
+        System.out.println("Construyendo el objeto Doctor - constructor 2");
+        id = ++numberIncrement;
     }
 
     // Métodos - comportamientos
     public void showName(){
-        System.out.println(name);
+        System.out.println("Nombre del Doctor: " + this.name);
+    }
+
+    public void showId(){
+        System.out.println("Id: " + this.id);
     }
 
 }

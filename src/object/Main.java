@@ -1,4 +1,5 @@
 package object;
+import static object.ui.uiMenu.*;
 
 public class Main {
 
@@ -12,15 +13,15 @@ public class Main {
         * Se usa la palabra reservada new para invocarlo
         * Puede tener cero o más argumentos
         * No regresa un valor */
-        Doctor myDoctor = new Doctor();
+        Doctor myDoctor = new Doctor("Sergio Rodríguez");
 
-        myDoctor.name = "Sergio Rodríguez";
-
-        //
         myDoctor.showName();
+        myDoctor.showId();
 
         // Segundo método constructor de la clase Doctor
-        Doctor my2Doctor = new Doctor("Darlyn Caicedo");
+        Doctor my2Doctor = new Doctor("Darlyn Caicedo", "Medicina General");
+        my2Doctor.showId();
+        my2Doctor.showName();
       /*Métodos / Variable estaticos
         *Se pueden usar en toda la clase
         *Están definidos por la palabra reservada "static"
@@ -32,11 +33,7 @@ public class Main {
         * Variable static: una de sus caracteristicas es que sirve como variable de clase, es decir, que
         su valor es indiferente a los objetos que se creen de la clase */
 
-        //Scope
-        System.out.println(Doctor.valor);
-        System.out.println(Doctor.valor = 1);
-        System.out.println(Doctor.valor);
-
+        // Se instancia la clase Bicycle para validar el incremento de la variable de clase numberOfBicycles
         Bicycle bicycle1 = new Bicycle(12,25,25);
         Bicycle bicycle2 = new Bicycle(12,25,25);
         Bicycle bicycle3 = new Bicycle(12,25,25);
@@ -46,6 +43,10 @@ public class Main {
         System.out.println(bicycle2.getID());
         System.out.println(bicycle3.getID());
 
+        System.out.println("Ejemplo EPS:");
+        System.out.println("------------------------");
+        // Se accede al método showMenuGeneral de la clase uiMenu importada del paquete ui
+        showMenuGeneral();
 
     }
 }
