@@ -10,8 +10,9 @@ public class Variables {
          - Letras posteriores pueden ser $ "_"
          - Las constantes se escriben en mayúscula y contienen "_" como separación*/
 
-       /*Declaración: keyWord nombreVariable = valor; se inicializa la variable
-        A partir de Java 10, se infieren los tipos de datos, se imite el keyWord y se utilizar var
+       /*Declaración: tipoDato nombreVariable = valor; se inicializa la variable
+        A partir de Java 10, se infieren los tipos de datos, se imite el keyWord   de tipo de dato y se utiliza var, el cual
+        se puede utilizar sólo para métodos, contructores y bloques de inicialización.
         */
 
         int number = 15;
