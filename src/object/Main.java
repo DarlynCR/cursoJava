@@ -48,5 +48,91 @@ public class Main {
         // Se accede al método showMenuGeneral de la clase uiMenu importada del paquete ui
         showMenuGeneral();
 
+        // Construcción de objetos de la clase Patient
+        /*OBJETO - VARIABLE
+        * Objeto - ubicación: en el stack se almacena la ubicación en memoria (heap) donde se encuentran los datos del objeto
+        * La asignación - hace referencia es a la ubicación en memoria del objeto
+        * Compuesta de un Conjunto de variables y métodos
+        * Variable - ubicación: se almacena el valor del dato directamente en el stack
+        * La asignación de valores entre variables es directa
+        * Compuesta de un valor como : char, double, int ... No tiene métodos*/
+
+        /*Clases Wrapper / objeto primitivo
+        * Manejar un dato primitivo como un objeto
+        * Byte
+        * Short
+        * Integer
+        * Long
+        * Float
+        * Double
+        * Character
+        * Boolean
+        * String*/
+
+        Patient patient = new Patient("Alejandra", "aleja@gmail.com");
+        Patient patient2 = new Patient("Emma", "emma@gmail.com");
+        Patient patient3 = new Patient("Matias", "matias@gmail.com");
+        patient = patient2; // Ambos objetos apuntarán a la misma localidad de memoría
+
+        /*CLASES ANIDADAS
+        * Una clase que vive dentro de otra clase
+        * Clase exterior/outer - La clase de afuera -
+        * Para acceder a las propiedades o métodos de la clase interna, se debe instanciar la misma
+        * dentro de la clase externa
+        * Clase interior/inner - La lógica de su comportamiento esta vínculada con la clase exterior
+        * Desde la clase interna se puede acceder a los miembros de la clase externa, así estos esten
+        * encapsulados - private
+        * No puede definir miembros estaticos
+        *
+        * TIPOS DE CLASES ANIDADAS
+        *** CLASES INTERNAS/ANIDADA-NESTED ----- CLASES ESTÁTICAS ANIDADAS-NESTED/INTERNAS
+        *  Estas clases se pueden encapsular
+        *
+         ** CLASES INTERNAS/ANIDADA-NESTED -> Tienen acceso a los miembros(propiedades/métodos) de la clase externa
+        *  No puede definir miembros estaticos
+        *  Para instanciar una clase interna, primero se debe instanciar la clase externa
+        *  Ejemplo:
+        *  OuterClass outerObject = new OuterClass();
+        *  OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+        *
+        ** CLASES ESTÁTICAS ANIDADAS-NESTED/INTERNAS -> No tienen acceso a los miembros de la clase externa, a no ser que sean estaticos
+        * Para tener acceso a los demas miembros de la clase externa - se necesita una referencia de objeto (se recibe el objeto como parametro en un método
+        * de la clase estatica anidada)
+        * Para instanciar la clase estatica no es necesario la instanciación de la clase externa.
+        * Ejemplo:
+        * StaticNestedClass staticNestedObject = new StaticNestedClass();
+        * staticNestedObject.accessMembers(outerObject); //referencia de objeto
+        *
+        **** CLASES INTERNAS/ANIDADA-NESTED -> SE DIVIDEN EN DOS
+        *
+        *** CLASES LOCALES A UN MÉTODO ----- CLASES INTERNAS ANÓNIMAS
+        *
+        ** CLASES LOCALES A UN MÉTODO -> Clases definidas dentro de un método
+        *
+        ** CLASES INTERNAS ANÓNIMAS ->
+        *
+        *
+        * PORQUE USAR CLASES ANIDADAS:
+        * Forma de agrupar lógicamente clases que tienen relación
+        * Aumenta la encapsulación
+        * Hace el código más legible y mantenible
+        *
+        * TOP-LEVEL-CLASS
+        * Se puede acceder desde otra clase diferente a los miembros de la clase Outer
+        * Recibiendo una referencia de objeto
+        * public class TopLevelClass {
+
+            void accessMembers(OuterClass outer) {
+                // Compiler error: Cannot make a static reference to the non-static
+                //     field OuterClass.outerField
+                // System.out.println(OuterClass.outerField);
+                System.out.println(outer.outerField);
+                System.out.println(OuterClass.staticOuterField);
+            }}
+         */
+
+
+
+
     }
 }
