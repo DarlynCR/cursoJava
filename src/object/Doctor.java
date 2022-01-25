@@ -1,11 +1,17 @@
 package object;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+
 public class Doctor {
 
-    // Propiedades
-    int id; // valor por defecto 0
-    String name; // Valor por defecto null
-    String speciality; // Valor por defecto null
+    // Propiedades/Atributos
+    private int id; // valor por defecto 0
+    private String name; // Valor por defecto null
+    private String speciality; // Valor por defecto null
+    private String email;
+
     static int numberIncrement =0;
     //Método constructor
     Doctor(String name){
@@ -71,5 +77,54 @@ public class Doctor {
 
     public static void setNumberIncrement(int numberIncrement) {
         Doctor.numberIncrement = numberIncrement;
+    }
+
+    // Se instancia un objeto de tipo ArrayList para guardar los objetos de tipo AvailableAppointment
+    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+
+    // Método que añade a la lista los objetos de tipo AvailableAppointment
+    public void AddAvailableAppointment(Date date, String time){
+        //Se instancia un objeto de tipo AvailableAppointment
+        availableAppointments.add(new Doctor.AvailableAppointment(date, time));
+    }
+
+    //Método que retorna la lista de objetos de tipo AvailableAppointment
+    public ArrayList<AvailableAppointment> getAvailableAppointments(){
+        return availableAppointments;
+    }
+
+    public static class AvailableAppointment{
+        private int id;
+        private Date date;
+        private String time;
+
+        public AvailableAppointment(Date date, String time){
+            this.date = date;
+            this.time = time;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public void setTime(String time) {
+            this.time = time;
+        }
     }
 }

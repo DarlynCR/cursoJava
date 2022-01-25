@@ -1,4 +1,6 @@
 package object;
+import java.util.Date;
+
 import static object.ui.uiMenu.*;
 
 public class Main {
@@ -130,6 +132,19 @@ public class Main {
                 System.out.println(OuterClass.staticOuterField);
             }}
          */
+
+        // Ejemplo clases anidadas en la Clase Doctor
+
+        // Se añade al objeto myDoctor, los elementos de la lista de tipo AvailableAppointment
+        myDoctor.AddAvailableAppointment(new Date(), "4:00 pm");
+        myDoctor.AddAvailableAppointment(new Date(), "5:00 pm");
+        myDoctor.AddAvailableAppointment(new Date(), "6:00 pm");
+
+        //Para imprimir los datos de la lista que corresponden al objeto myDoctor
+        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
+            System.out.println(aA.getDate() + " " + aA.getTime());
+        }
+
 
 
 
