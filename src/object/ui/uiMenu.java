@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class uiMenu {
 
+    //final: constante, su valor no puede cambiar, si se intenta hacer dará un error en tiempo de compilación.
+    //Convención - NOMBRE_MAYUSCULA
+    public static final String[] MONTHS ={"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+
     public static void showMenuGeneral(){
 
         int response = 0;
@@ -46,7 +50,7 @@ public class uiMenu {
 
         do{
             System.out.println("Por favor seleccione la opción:");
-            System.out.println("1.Consultar Doctor");
+            System.out.println("1.Solicitar cita");
             System.out.println("2.Regresar");
 
             Scanner sc = new Scanner(System.in);
@@ -54,7 +58,11 @@ public class uiMenu {
 
             switch (response){
                 case 1:
-                    System.out.println("Consultar");
+                    System.out.println("Seleccione el mes requerido:");
+                    for (int i = 0; i < MONTHS.length; i++) {
+                        System.out.println(i+1 + "." + MONTHS[i]);
+                    }
+
                     break;
                 case 2:
                     showMenuGeneral();
