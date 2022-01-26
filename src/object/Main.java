@@ -93,6 +93,7 @@ public class Main {
          ** CLASES INTERNAS/ANIDADA-NESTED -> Tienen acceso a los miembros(propiedades/métodos) de la clase externa
         *  No puede definir miembros estaticos
         *  Para instanciar una clase interna, primero se debe instanciar la clase externa
+        *  No pueden definir miembros estáticos
         *  Ejemplo:
         *  OuterClass outerObject = new OuterClass();
         *  OuterClass.InnerClass innerObject = outerObject.new InnerClass();
@@ -110,8 +111,21 @@ public class Main {
         *** CLASES LOCALES A UN MÉTODO ----- CLASES INTERNAS ANÓNIMAS
         *
         ** CLASES LOCALES A UN MÉTODO -> Clases definidas dentro de un método
+        * Se puede definir una clase local, detro de un método, un blucle FOR o una cláusula IF
+        * Para que una clase local pueda acceder a las variables declaradas en los métodos,bucle o cláusula,
+        * estas variables deben ser declaradas con la palabra reservada "final"
+        * A partir de Java 8, se pueden acceder a los parámetros del método
+        * No pueden definir ni declarar miembros estáticos
+        * Sólo puede declarar variables estáticas, si también son final
+        * Para acceder a un miembro de la clase externa el miembro debe ser estático y el método donde se encuentra
+        * la clase también debe ser estático.
+        * No se pueden declarar interfaces, porque estas son estáticas
+        *
         *
         ** CLASES INTERNAS ANÓNIMAS ->
+        * Permiten hacer el código más conciso, es decir, declarar e instanciar una clase al mismo tiempo
+        * Son iguales a las clases locales, excepto que no tienen nombre
+        * Usar -> cuándo sólo se necesita usar una vez
         *
         *
         * PORQUE USAR CLASES ANIDADAS:
@@ -131,6 +145,7 @@ public class Main {
                 System.out.println(outer.outerField);
                 System.out.println(OuterClass.staticOuterField);
             }}
+            *
          */
 
         // Ejemplo clases anidadas en la Clase Doctor
@@ -146,7 +161,7 @@ public class Main {
         }
 
 
-
+        //
 
 
     }
