@@ -1,6 +1,7 @@
 package inheritance;
 
-public class Book {
+// Para el método clone() de la clase Object -> 1. la clase debe implementar la interface Cloneable
+public class Book implements Cloneable {
     //Se declara la variable de código para el libro
     public String ISBN;
     //Se declara el contructor
@@ -23,4 +24,9 @@ public class Book {
             return false;
     }
 
+    //Después de implementar la interface Cloneable en la clase, -> 2. se debe sobreescribir el método clone()
+    // de la siguiente manera:
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
 }

@@ -2,7 +2,7 @@ package inheritance;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         /*HERENCIA
         * "Don't Repeat Yourself
@@ -129,5 +129,42 @@ public class Main {
             System.out.println("objects are not equal");
         }
 
+        //Método getClass de la clase Object
+        System.out.println(firstBook.getClass());
+        //Este método getClass con la notación "." me deja llamar más métodos
+        System.out.println(firstBook.getClass().getSimpleName());//Trae el nombre solo de la clase
+
+        //Método clone() de la clase Object -> clase Book.java
+        // Se clona un objeto igual a firstBook y se almacena en la variable myClone
+        Book myClone = (Book) firstBook.clone();
+        //Se comprueba con la pripoedad ISBN que sean el mismo valor clonado
+        System.out.println(myClone.getISBN());
+
+        /*CLASES Y MÉTODOS ABSTRACTOS --Ejemplo ->clases GraphicObject.java - Circle.java - Rectangle.java
+        * Se declara como "abstract"
+        * Puede o no incluit métodos abastractos
+        * No se pueden instanciar, pero si se pueden heredar
+        * Método abstracto -> método sin implmentación, sin cuerpo -> declaración abstract void método();
+        * Si una clase incluye al menos un método abstract, la clase debe ser declarada como abstract
+        * Las subclases deben darle implementación a los métodos abstractos -> si esta no le da implementación tambien debe
+        * declararse abstract
+        * Cuando una clase abstracta implmenta una interface -> no tiene la obligación de dar implementación
+        * a todos los métodos de la interface, sólo los que necesite
+        * Puede tener propiedades y métodos estáticos y para su acceso, se accede como cualquier clase estática
+        *
+        * CUANDO USARLAS:
+        * Para compartir código entre clases estrechamente relacionadas
+        * Cuando se espera que las subclases tengan muchos métodos o propiedades comunes
+        * o si requieren modificadores de acceso que no sean public sino protected - private
+        * Se desea declarar campos no estaticos y no finales
+        *
+        * CUANDO USAR INTERFACES:
+        * Cuando necesita que clases no relacionadas implementen su interface ej: Cloneable
+        * Cuando se desea específicar un comportamiento(método) en específico, que tienen en común
+        * varías clases que no estén relacionadas
+        * Se desea aprovechar la herencia multiple de tipo (implementar muchas interfaces en una clase)
+        *
+        *
+        * */
     }
 }
