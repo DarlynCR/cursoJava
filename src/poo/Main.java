@@ -182,7 +182,6 @@ public class Main {
 
         patient2.setPhoneNumber("645-254-5260");
 
-
     }
 
     //Se crea lista para almacenar los pacientes

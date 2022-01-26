@@ -18,6 +18,9 @@ public class Main {
         * Hereda los estados y comportamientos de la superclase
         * No acepta herencia multiple de estado y de comportamiento
         *
+        * SUPER - THIS
+        * SUPER -> Accedo a los miembros de la superclase
+        * THIS -> Accedo a los miembros de la subclase
         *
         * */
 
@@ -75,8 +78,56 @@ public class Main {
         * EJEMPLO EN la clase FlyingCar.java
         * */
 
+        /*MODIFICADORES JERARQUICOS EN SOBREESCRITURA DE MÉTODOS
+        Se pueden usar modificadores en los métodos sobreescritos/anulados
+        De arriba hacía abajo en la siguiente jerarquia -NO de abajo hacía arriba
+        * private
+        * protected
+        * public
+        * */
 
 
+        /* POLIMORFISMO
+        * En clases -> cuando existe una jerarquia por herencia, la superclase funciona
+        * como un tipo de dato valido para las subclases
+        * En métodos -> Cuando se desea sobreescribir métodos de la superclase, en el método
+        * que anula se llama al método de la superclase con la palabra reservada "super" y
+        * se le añade nueva implementación
+        * Posibilidad de sobreescribir un método con implementaciones diferentes o añadidas
+        *
+        * OCULTAR CAMPOS
+        * Si un subclase declara una variable con el mismo nombre de una variable de la superclase
+        * este lo oculta, y para acceder a cada una, será con la palabra reservada SUPER -THIS
+        * Se aconseja -> no poner nombres en la subclase que coincidan con los de la superclase
+        *
+        *
+        * */
+
+
+        /*ESCRITURA DE CLASES Y MÉTODOS FINALES
+        "final" -> no es susceptible de modificaciones
+        * Se pueden declarar algunos o todos los métodos con "final" en una clase
+        * Los métodos llamados desde constructores deben declararse "Finales"
+        * Una clase completa también puede declararse como "final"
+        * */
+
+
+        /*OBJECT COMO SUPERCLASE
+        *
+        * EN java cada clase es descendiente directa o interecta de OBJECT
+        * Si necesito utilizar un método de instancia de la clase Object, lo más probable
+        * es que se deva sobreescribir - ejemplo: equals() toString()
+        * */
+
+        //Ejemplo de OBJECT COMO SUPERCLASE - CLASE Book.java
+        Book firstBook  = new Book("0201914670");
+        Book secondBook = new Book("0201914672");
+
+        if (firstBook.equals(secondBook)) {
+            System.out.println("objects are equal");
+        } else {
+            System.out.println("objects are not equal");
+        }
 
     }
 }
