@@ -63,7 +63,17 @@ public class Main {
         * Cuando se aplica herencia entre interfaces, y los métodos de la subinterfaz sobreecribe el método
         * de la superInterfaz, Java le da preferencia a el método sobreescrito
         * EJEMPLO PRÁCTICO EN la Clase Dragon.java
+        *
+        * IMPLEMENTACIÓN PREDETERMINADAS PARA EL MISMO MÉTODO
+        * Cuando una clase implemente dos interfaces que tengan métodos predetermiandos con la misma firma
+        * Se podrá acceder a cualquiera de los métodos mediante:
+        * 1. La clase debe anular/sobreescribir el método predeterminado en las interfaces
+        * 2. Dentro del método que sobreescribe se accede: nombreInterfaz.super.metodoPredeterminado();
+        *
+        * EJEMPLO EN la clase FlyingCar.java
         * */
+
+
 
 
     }
