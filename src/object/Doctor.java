@@ -83,7 +83,7 @@ public class Doctor {
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     // Método que añade a la lista los objetos de tipo AvailableAppointment
-    public void AddAvailableAppointment(Date date, String time){
+    public void addAvailableAppointment(Date date, String time){
         //Se instancia un objeto de tipo AvailableAppointment
         availableAppointments.add(new Doctor.AvailableAppointment(date, time));
     }

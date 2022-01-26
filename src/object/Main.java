@@ -1,4 +1,5 @@
 package object;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static object.ui.uiMenu.*;
@@ -6,6 +7,11 @@ import static object.ui.uiMenu.*;
 public class Main {
 
     public static void main(String[] args) {
+
+        /*ESTADO Y COMPORTAMIENTO DE OBJETOS
+        * ESTADO -> Hace referencia a las variables o propiedades
+        * COMPORTAMIENTO -> Hace referencia a los métodos*/
+
 
         //Instanciando la clase Doctor
         // Clase nombreObjeto = new NombreMétodoConstructor();
@@ -15,6 +21,8 @@ public class Main {
         * Se usa la palabra reservada new para invocarlo
         * Puede tener cero o más argumentos
         * No regresa un valor */
+
+
         Doctor myDoctor = new Doctor("Sergio Rodríguez");
 
         myDoctor.showName();
@@ -74,6 +82,7 @@ public class Main {
         Patient patient = new Patient("Alejandra", "aleja@gmail.com");
         Patient patient2 = new Patient("Emma", "emma@gmail.com");
         Patient patient3 = new Patient("Matias", "matias@gmail.com");
+        Patient patient4 = new Patient("Alejandra", "aleja@gmail.com");
         patient = patient2; // Ambos objetos apuntarán a la misma localidad de memoría
 
         /*CLASES ANIDADAS
@@ -151,9 +160,9 @@ public class Main {
         // Ejemplo clases anidadas en la Clase Doctor
 
         // Se añade al objeto myDoctor, los elementos de la lista de tipo AvailableAppointment
-        myDoctor.AddAvailableAppointment(new Date(), "4:00 pm");
-        myDoctor.AddAvailableAppointment(new Date(), "5:00 pm");
-        myDoctor.AddAvailableAppointment(new Date(), "6:00 pm");
+        myDoctor.addAvailableAppointment(new Date(), "4:00 pm");
+        myDoctor.addAvailableAppointment(new Date(), "5:00 pm");
+        myDoctor.addAvailableAppointment(new Date(), "6:00 pm");
 
         //Para imprimir los datos de la lista que corresponden al objeto myDoctor
         for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
@@ -161,8 +170,31 @@ public class Main {
         }
 
 
-        //
+        //Ejemplo de clase local en la clase Patient
+        //Se añaden los objetos patient a la lista de patient
+        addPatient(patient2);
+        addPatient(patient3);
+        addPatient(patient4);
+
+        for (Patient p : getPatients()) {
+            System.out.println(p.getName() + "\n");
+        }
+
+        patient2.setPhoneNumber("645-254-5260");
 
 
+    }
+
+    //Se crea lista para almacenar los pacientes
+    public static ArrayList<Patient> patients = new ArrayList<>();
+    // Método que añade a la lista los pacientes
+    public static void addPatient(Patient patient){
+        //Se instancia un objeto de tipo Patient y se añade a la lista
+        patients.add(new Patient(patient.getName(),patient.getEmail()));
+    }
+
+    //Método que retorna la lista de objetos de tipo Patient
+    public static ArrayList<Patient> getPatients(){
+        return patients;
     }
 }

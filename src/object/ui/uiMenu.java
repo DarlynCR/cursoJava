@@ -1,7 +1,13 @@
 package object.ui;
 
 
+import object.Doctor;
+import object.Main;
+import object.Patient;
+
 import java.util.Scanner;
+
+import static object.Main.getPatients;
 
 public class uiMenu {
 
@@ -51,7 +57,9 @@ public class uiMenu {
         do{
             System.out.println("Por favor seleccione la opción:");
             System.out.println("1.Solicitar cita");
-            System.out.println("2.Regresar");
+            System.out.println("2.Modificar número telefónico");
+            System.out.println("3.Regresar");
+            System.out.println("0.Salir");
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
@@ -62,10 +70,21 @@ public class uiMenu {
                     for (int i = 0; i < MONTHS.length; i++) {
                         System.out.println(i+1 + "." + MONTHS[i]);
                     }
-
                     break;
                 case 2:
+                    System.out.println("Selecione el nombre del paciente:");
+                    for (Patient p : getPatients()) {
+                        System.out.println(p.getName() + "\n");
+                    }
+
+
+                    break;
+
+                case 3:
                     showMenuGeneral();
+                    break;
+                default:
+                    System.out.println("Selecciona una opción correcta");
             }
         }while (response != 0);
 
