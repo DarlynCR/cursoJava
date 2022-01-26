@@ -1,7 +1,4 @@
-package object;
-
-import java.util.ArrayList;
-import java.util.Date;
+package poo;
 
 public class Patient {
 

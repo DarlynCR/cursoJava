@@ -1,4 +1,4 @@
-package object;
+package poo;
 
 public class Bicycle {
 

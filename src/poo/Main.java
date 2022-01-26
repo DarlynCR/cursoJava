@@ -1,8 +1,8 @@
-package object;
+package poo;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static object.ui.uiMenu.*;
+import static poo.ui.uiMenu.*;
 
 public class Main {
 

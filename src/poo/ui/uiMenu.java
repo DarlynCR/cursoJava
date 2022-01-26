@@ -1,13 +1,11 @@
-package object.ui;
+package poo.ui;
 
 
-import object.Doctor;
-import object.Main;
-import object.Patient;
+import poo.Patient;
 
 import java.util.Scanner;
 
-import static object.Main.getPatients;
+import static poo.Main.getPatients;
 
 public class uiMenu {
 
