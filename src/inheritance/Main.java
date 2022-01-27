@@ -5,18 +5,22 @@ public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
 
         /*HERENCIA
-        * "Don't Repeat Yourself
+        * "Don't Repeat Yourself"
         * Promueve la reducción de duplicación en programación
-        * Las piezas de información nuca deben duplicarse
+        * Las piezas de información nunca deben duplicarse
         * Disminuye la dificultad en los cambios y evolución
         * Se crean nuevas clases a partir de otras
         * Se establece una relación padre - hijo
         * Superclase - clase padre . clase con un nivel de abstración más elevado
         * Si todas las subclases comparten un conjunto de estados y comportamientos,
         * estos irán en la superclase
-        * Subclase - clase hijo
+        * Subclase - clase hijo, hereda estados y comportamientos de la superclase -
+        * palabra reservada "extends"
         * Hereda los estados y comportamientos de la superclase
         * No acepta herencia multiple de estado y de comportamiento
+        *Una subclase no hereda los miembros privados de su clase principal.
+        * Sin embargo, si la superclase tiene métodos públicos o protegidos para acceder
+        * a sus campos privados, la subclase también puede utilizarlos.
         *
         * SUPER - THIS
         * SUPER -> Accedo a los miembros de la superclase
@@ -163,6 +167,35 @@ public class Main {
         * Cuando se desea específicar un comportamiento(método) en específico, que tienen en común
         * varías clases que no estén relacionadas
         * Se desea aprovechar la herencia multiple de tipo (implementar muchas interfaces en una clase)
+        *
+        *
+        * */
+
+
+        /*INTERFACES
+        *
+        * Tipo de referencia, similar a una clase -> solo puede contener constantes y frimas de métodos
+        * Métodos predeterminados, estáticos y tipos anidados
+        * Métodos predeterminados y estáticos -> únicos que pueden tener cuerpo
+        * No se pueden instanciar
+        * Sólo se pueden implementar mediante clases (implements) o ampliar mediante otras interfaces (extends)
+        * Las interfaces pueden extender a cualquier número de interfaces (una clase sólo puede extender de una clase)
+        * Para las clases que implementen la interfaz, es obligatorio darle implementación a cada método de la interfaz
+        * DECLARACIÓN:
+        * public interface nombreInterface{}
+        * Si no se especifica public en la interfaz, sólo la podrá acceder las clases declaradas en el mismo archivo
+        * EJEMPLO interface GroupedInterface.java
+        * Si se implementa una interfaz que hereda de otra interfaz,  la clase que la implementa
+        * sólo está obligada a dar implementación a los métodos de la interfaz que implementa, los métodos
+        * de la interfaz que hereda la interfaz que implementa, serán opcionales
+        *
+        * Si quiero modificar una interfaz para añadirle nuevos métodos, se puede hacer los siguiente:
+        * 1. Crear otra interfaz que extienda de esta y añadir los nuevos métodos
+        * 2. Crear los nuevos métodos que se necesitan como predeterminados (default) o estáticos (static)
+        * En este caso, los métodos estáticos son considerados como métodos de útilidad y no ensenciales como los demás
+        * Y los predeterminados permiten agregar estas nuevas funciones y garantizan la compatibilidad binaria con la versión anterior
+        *
+        * MÉTODOS PREDETERMINADOS
         *
         *
         * */
