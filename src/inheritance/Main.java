@@ -161,13 +161,15 @@ public class Main {
         * Cuando se espera que las subclases tengan muchos métodos o propiedades comunes
         * o si requieren modificadores de acceso que no sean public sino protected - private
         * Se desea declarar campos no estaticos y no finales
+        *-> Se piensa más en objetos en su creación nombres ej: sustantivos
+        *
         *
         * CUANDO USAR INTERFACES:
         * Cuando necesita que clases no relacionadas implementen su interface ej: Cloneable
         * Cuando se desea específicar un comportamiento(método) en específico, que tienen en común
         * varías clases que no estén relacionadas
         * Se desea aprovechar la herencia multiple de tipo (implementar muchas interfaces en una clase)
-        *
+        *-> Se piensa más en acciones en su creación - nombres ej: Drawable, Runnable, Callable, Visualizable
         *
         * */
 
@@ -195,7 +197,17 @@ public class Main {
         * En este caso, los métodos estáticos son considerados como métodos de útilidad y no ensenciales como los demás
         * Y los predeterminados permiten agregar estas nuevas funciones y garantizan la compatibilidad binaria con la versión anterior
         *
-        * MÉTODOS PREDETERMINADOS
+        * AMPLIACIÓN DE INTERFACES QUE CONTIENEN MÉTODOS PREDETERMINADOS
+        *
+        * Al ser predeterminado es opcional en su uso
+        * Si se vuelve a declarar, el mismo se vuelve abstracto
+        * Se puede sobreescribir
+        *
+        * USO DE UNA INTERFAZ COMO TIPO
+        * Cuando se define una interfaz, se está definiendo un nuevo tipo de dato de referencia
+        * Esto quiere decir, que se puede usar nombres de interfaz en cualquier otro lugar donde pueda usar
+        * cualquier otro nombre de tipo de dato.
+        * Para que pueda ser usada como tipo, la clase debe implementar la interfaz
         *
         *
         * */
