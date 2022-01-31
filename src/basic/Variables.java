@@ -81,5 +81,18 @@ public class Variables {
 
         System.out.println(nI);
 
+        //PASO DE ARGUMENTOS
+        //
+        // Paso por valor -> Sólo se da en tipos de datos primitivos
+        /* En el paso de valores en los métodos, se recibe en el método una copia del valor
+        * Ya dentro del método estaremos trabajando con una copia del valor del arg recibido
+        *
+        * Paso por referencia -> Se da en objetos
+        * Las variables de tipo object -> almacenan la referencia
+        * En el paso de objetos en los métodos se pasa la referencia del mismo
+        * En este caso, ya dentro del método si se podrán modificar los valores del objeto
+        *
+        * */
+
     }
 }
