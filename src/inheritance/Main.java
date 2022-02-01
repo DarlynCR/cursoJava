@@ -28,12 +28,20 @@ public class Main {
         *
         * */
 
+        /*INSTANCE OF
+        * Nos permite preguntar de que tipo es la referencia a la cual apunta cierta variable
+        * es decir, al tipo de la variable que apunta en memoria
+        * Es recomendable, que se implemente de las clases hijas hacia la clase padre hasta llegar a object
+        * de ser necesario
+        *
+        * */
+
         /*HERENCIA MULTIPLE DE TIPO
         * Se admite este tipo de herencia, la cual hace referencia a:
         * Cuando se implementa más de una interfaz en un clase, esta interfaz puede
         * pasar a ser usada como "tipo de dato" al momento de instanciar el objeto
         * que implementa la clase
-        *
+        * el objeto instanciado tendrá acceso a los métodos de sobreescritos de la clase
         * NombreInterfazImplementada NombreobjetoInstanciado = new ClaseQueImplementaLaInterfaz();
         * */
 
@@ -118,9 +126,11 @@ public class Main {
 
         /*OBJECT COMO SUPERCLASE
         *
-        * EN java cada clase es descendiente directa o interecta de OBJECT
+        * EN java cada clase es descendiente directa o indirecta de OBJECT
         * Si necesito utilizar un método de instancia de la clase Object, lo más probable
-        * es que se deva sobreescribir - ejemplo: equals() toString()
+        * es que se deba sobreescribir - ejemplo: equals() toString()
+        * Si se sobreescribe el método hashCode(), se debe hacer también con el método equals()
+        *
         * */
 
         //Ejemplo de OBJECT COMO SUPERCLASE - CLASE Book.java
@@ -169,7 +179,7 @@ public class Main {
         * Cuando se desea específicar un comportamiento(método) en específico, que tienen en común
         * varías clases que no estén relacionadas
         * Se desea aprovechar la herencia multiple de tipo (implementar muchas interfaces en una clase)
-        *-> Se piensa más en acciones en su creación - nombres ej: Drawable, Runnable, Callable, Visualizable
+        *-> Se piensa más en acciones/comportamientos en su creación - nombres ej: Drawable, Runnable, Callable, Visualizable
         *
         * */
 
