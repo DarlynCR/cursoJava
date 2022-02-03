@@ -1,6 +1,8 @@
 package generics;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -127,7 +129,7 @@ public class Main {
         * Ej. <T extends Integer> --> en el scope de la clase o método genérico podremos acceder a los métooos de Integer
         *
         * LIMITES MULTIPLES
-        * Además de limitarlo como se vió anteriormente, nos permite limitarlo con multiples tipos (pueden ser clases / interfaces)
+        * Además de limitarlo como se vió anteriormente, nos permite limitarlo con múltiples tipos (pueden ser clases / interfaces)
         * En su sintaxis las clases deben indicarse primero para que no de un error en tiempo de compilación
         * Estas restricciones deben separarse con la notación "&"
         * Ejemplo:
@@ -172,11 +174,78 @@ public class Main {
             PayloadList<String,Exception>
         *Siendo el primer parámetro de tipo : String -> E
         * Y estas parametrizaciones serían subtipos de List<String>
+        * */
+
+
+        /*INFERENCIA DE TIPOS Y MÉTODOS GENÉRICOS
+        La inferencia de tipo, me permite no poner el <> e indicar el tipo de dato que
+        recibirá el método genérico, permitiendo pasar cualquier tipo de dato
+        *Ejemplo:
+        * */
+        // En este caso s1 sería de tipo ArrayList
+        System.out.println("Ejemplos -> Inferencia de tipos y métodos genéricos: ");
+        //Por la jerarquia, al método retornar un ArrayList, se puede indicar que la variable sea de tipo Serializable
+        // Ya que ArrayList implementa la interfaz Serializable
+        Serializable s1 = Util.pick("d", new ArrayList<String>(), 8.0);
+        System.out.println("s1 es de tipo: " + s1.getClass().getSimpleName());
+        //Sin embargo, es recomendable por buenas prácticas, dejar el <> e indicar
+        //El tipo de dato que va a recibir el método
+        System.out.println("Llamando al método pick con <String>: tipo de dato: " + Util.<String>pick("s", "d", "f").getClass().getSimpleName());
+        /*Si se va a recibir diferentes tipos de datos en el método
+        * Es preferible indicarle al método otra variable de tipo, para en el llamado del
+        * Método poder indicar los tipos de datos que recibirá
+        * <T, T1> --- <T, S> */
+
+
+        /*Inferencia de tipos en constructores genéricos y clases genéricas
+        * class MyClass<X> {
+              <T> MyClass(T t) {
+                // ...
+              }
+           }
+        *La clase genérica puede recibir un parámetro de tipo y en el contructor genérico
+        * también se puede recibir un parámetro de otro tipo diferente
+        * El tipo de la clase se puede inferir en este sentido:
+        * MyClass<Integer> myObject = new MyClass<>("");
+        * <> -> se infiere el tipo de la clase al relacionarlo en el lado izquierdo
+        * de la instanciación
         *
-        *
+        * El tipo del constructor se puede inferir de la siguiente manera:
+        * new MyClass<Integer>("") -> <> Hace referencia al tipo de la clase (" ") -> hace referencia al tipo del contructor
         *
         *
         * */
+
+
+        /*wildcard - comodines
+        * Cuando voy a usar clases/interfaces como tipo de dato, para que no sea tan restrictivo
+        * como usar List<Number> -> que sólo me admitiria un objeto de tipo  List<Number>
+        * Puedo usar los wildcard para indicar la clase superior y que me admita usar como tipo de dato, esta
+        * o sus subclases -> su sintanxis sería así: List<? extends Number>
+        * De esta manera, puedo usar List<Number> , List<Integer>, List<Double>
+        *
+        * Cómodin ilimitado
+        * */
+        //Ejemplo comodín limitado
+        System.out.println("Comodines: ");
+        //usando el comodín ilimitado como tipo de dato
+        List<Integer> li = Arrays.asList(1, 2, 3);
+        List<String>  ls = Arrays.asList("one", "two", "three");
+        //Se llama al método que recibe el comodín ilimitado List<?>
+        Util.printList(li);
+        Util.printList(ls);
+        /* En los wildcard se delimitan los tipos de datos a usar:
+        * <? extends Number> -> se limitará a la clase Number y sus subclases - específicando límite inferior
+        * <? super Integer> -> Se limitará a la clase Integer y sus superclases- específicando límite superior
+        * */
+
+
+
+
+
+
+
+
     }
 
 
