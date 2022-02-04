@@ -33,4 +33,12 @@ public class Util {
             System.out.print(elem + " ");
         System.out.println();
     }*/
+
+
+    //ejemplo wildcard
+    public static void draw(Generic<? extends Number> number){
+        //Instrucciones...
+    }
+
+
 }

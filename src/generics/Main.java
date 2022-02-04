@@ -21,6 +21,9 @@ public class Main {
         * Implementación de algoritmos genéricos
         * Se pueden crear interfaces y clases genericas
         * Tener en cuenta el polimorfismo en cuanto a su función en las jerarquias en los tipos de datos
+        * No se pueden crear campos estáticos en clases/interfaces genéricas
+        * En la declaración de las clases/metodos/interfaces genéricas no puedo manejar try/catch
+        * Una clase genérica no puede heredar de Exception ni de Throwable
         *
         * Nomenclaturas:
         * Nombre tipo Genérico   --- Significado del tipo Genérico
@@ -65,6 +68,8 @@ public class Main {
         // Argumento de tipo es diferente a Parámetro de tipo
         /* T en Foo<T> --> Es parámetro de tipo
         * String en Foo<String> f --> Argumento de tipo
+        * Tipo parametrízado -> es Foo<Integer> indicarle a la clase que tipo va a recibir
+        * Los tipos parámetrizados no pueden usar cast ni instanceOF -> por el borrado de tipo (Ver más adelante)
         * */
 
         // Ejemplo con Clase que recibe 2 parámetros de tipo e implementa interfaz que a su vez recibe 2 parámetros de tipo
@@ -218,13 +223,14 @@ public class Main {
 
 
         /*wildcard - comodines
-        * Cuando voy a usar clases/interfaces como tipo de dato, para que no sea tan restrictivo
-        * como usar List<Number> -> que sólo me admitiria un objeto de tipo  List<Number>
+        * Cuando voy a usar clases/interfaces genéricas como tipo de dato, para que no sea tan restrictivo
+        * como usar List<T> en su implementación, es decir, -> List<Number> -> que sólo me admitiria un objeto
+        * de tipo  List<Number>.
         * Puedo usar los wildcard para indicar la clase superior y que me admita usar como tipo de dato, esta
         * o sus subclases -> su sintanxis sería así: List<? extends Number>
         * De esta manera, puedo usar List<Number> , List<Integer>, List<Double>
         *
-        * Cómodin ilimitado
+        * Cómodin ilimitado ClaseGenérica<?>
         * */
         //Ejemplo comodín limitado
         System.out.println("Comodines: ");
@@ -238,15 +244,53 @@ public class Main {
         * <? extends Number> -> se limitará a la clase Number y sus subclases - específicando límite inferior
         * <? super Integer> -> Se limitará a la clase Integer y sus superclases- específicando límite superior
         * */
+        // La variable listNumber podrá recibir cualquier tipo de lista de la clase List y sus subclases
+        List<? extends Number> listNumber = li;
 
 
+        /*BORRADO DE TIPOS GENÉRICOS
+        *Para implementar genéricos el compilador de Java aplica el borrado de tipo
+        * Esto quiere decir, que el compilador reemplaza todos los parámetros de tipo en tipos
+        * genéricos con sus limítes o en Object si los parámetros de tipo no tienen limite
+        *<T> -> Reemplaza T con Object
+        * <T extends Comparable<T>> -> Reemplaza T con Comparable
+        * Debido a esto en los tipos paramétrizados (Clase<Integer>) no se puede usar cast ni instanceOf
+        * */
 
+        /*tipos parámetrizados: para poder usar instanceOf lo máximo que se podrá hacer será usar un comodin
+        * Clase<?>
+        No se pueden crear matrices de tipo parámetrizado
+        * No se pueden crear , atrapar o lanzar tipos parámetrizados
+        * Un parámetro de tipo puede ser usar en la clausula Throws, ejemplo:
+        * class Parser<T extends Exception> {
+                public void parse(File file) throws T {     // OK
+                    // ...
+                }
+          }
+          *
+          * Una clase no puede tener dos métodos sobrecargados que pueden quedar con la
+          * misma firma después del borrado de tipo (ya que el compilador asignará Object al tipo genérico)
+        * */
 
+        /*CREAR INSTANCIAS DE PARÁMETROS DE TIPO DENTRO DEL MISMO MÉTODO/CLASE/INTERFAZ GENÉRICO
+        *Cuando dentro del MÉTODO/CLASE/INTERFAZ GENÉRICO queremos crear una instancia, esto no
+        * está permitido, pero lo podemoa hacer de la siguiente manera:        *
+        *
+        * public static <E> void append(List<E> list, Class<E> cls) throws Exception {
+                E elem = cls.newInstance();   // OK
+                list.add(elem);
+          }
+          *
+          * List<String> ls = new ArrayList<>();
+            append(ls, String.class);
+        * */
+        System.out.println(String.class);
 
 
 
 
     }
+
 
 
 }
