@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -142,10 +143,21 @@ public class Main {
         listArratList.add("Darlyn");
         listArratList.forEach(System.out::println);
 
-        /*
-
+        /*COMBINACIÓN DE EXPRESIONES LAMBDAS -> objetivo: hacer un código más legible y simple
+        * Los métodos predeterminados de las interfaces funcionales de java.util
+        * permiten la combinación y encadenamiento de expresiones lambdas
+        * Esto quiere decir, que teniendo una variable del tipo de la interfaz, dentro de la expresión
+        * lambda de otra variable del mismo tipo de la interfaz, podré llamar los métodos predeterminados de
+        * la misma.
+        *
+        * Ejemplo:
         *
         * */
+        Logger logger = Logger.getLogger("MyApplicationLogger");
+        Consumer<String> log = message -> logger.info(message);
+        Consumer<String> print = message -> System.out.println(message);
+        Consumer<String> printAndLog = log.andThen(print);
+
     }
 
 }
