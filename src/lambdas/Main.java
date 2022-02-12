@@ -115,6 +115,7 @@ public class Main {
         * ClassName::new -> Sería lo mismo que: (args) -> new ClassName(args)
         *
         * */
+
         System.out.println("Referencia de métodos:");
         System.out.println("Ejemplo Referencia a métodos estáticos: ");
         //Ejemplo 1. Referencia de métodos estáticos
