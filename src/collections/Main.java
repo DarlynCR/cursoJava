@@ -166,13 +166,11 @@ public class Main {
         * Clases que la implementan : TreeSet
         *  */
 
-        /* */
-
-
-
         /*Interfaz COMPARATOR
             Una clase que implementa esta interfaz, para realizar una comparación
             y ordenar una lista de una manera más personalizada, o de acuerdo a la lógica de negocio.
+
+
          * Al implementar la interfaz Comparator, y sobreescribir el método Compare()
          * El método Compare() recibe dos objetos que sean del mismo tipo que se indique en la implementación
          * de la interfaz (Comparator<TipoObjeto>), para poder ordenarlos.
@@ -188,18 +186,69 @@ public class Main {
          Collections.sort()
          * */
 
-        /*Interfaz Map - */
+        /*Interfaz Map -
+
+        * HashMap - clase que implementa la interfaz
+        * Un hashmap es una estructura capaz de almacenar pares clave-valor.
+        * El valor es cualquier objeto que su aplicación necesita manejar,
+        * y una clave es algo que puede representar este objeto.
+        * Caracteristicas:
+        * Por lo general, Clave-> es un objeto simple:  cadena de varios caracteres o un número.
+        * Valor -> puede ser tan complejo como se necesite.
+        * Una clave es única en un hashmap, un valor no tiene que ser único
+        *
+        * Para esto se han creado los hashmaps: puede manipular claves,
+        * moverlas de una parte de su aplicación a otra,
+        * transmitirlas a través de una red y, cuando necesite
+        * el objeto completo, puede recuperarlo con su clave.
+        *
+        * Mapas inmutables -> Map.Of() (Sólo admite 10 pares)
+        *  */
         System.out.println("Ejemplo Map:");
         Map myMap = new HashMap<>();
         myMap.put(1,"Lunes");
         myMap.put(2,"Martes");
         myMap.put(3,"Miércoles");
 
+        //Mapa inmutable
+        Map<Integer, String> map =
+                Map.of(
+                        1, "one",
+                        2, "two",
+                        3, "three"
+                );
+
+
         String element = (String) myMap.get(1); //Regresa un tipo Object, por esto se debe castear
         System.out.println(element);
         //No se imprimirán en el orden de almacenado.
         //ya que values() retorna un set con los valores del mapa, puedo iterarlos con un forEach
         myMap.values().forEach(System.out::println);
+
+        /*CREACIÓN DE COLECCIONES INMUTABLES
+        * A partir de métodos de fábrica - desde Java 9
+        * Llamando al método estático of() de List o de Set
+        * - Estas estructuras no aceptan valores nulos
+        * - Tanto Set como List serán inmutables
+        * - Set no aceptará valores duplicados
+        * - Si los objetos de estas estructuras son mutables, aún puede mutarlos.
+        * */
+
+        List<String> stringList = List.of("one", "two", "three");
+        Set<String> stringSet = Set.of("one", "two", "three");
+
+        /* Obtener una copia inmutable de una colección
+        A partir de Java 10 - se pueden crear copias inmutables de una colección
+
+        * */
+        // Clase Array para manejar matrices - asList() -> convierte un array a una lista
+        // En esta lista sólo se pueden modificar los elementos, más no agregar o eliminar
+        Collection<String> strings2 = Arrays.asList("one", "two", "three");
+
+        List<String> list = List.copyOf(strings2);
+        Set<String> set = Set.copyOf(strings2); //Si hay elementos duplicados se conservará uno solo
+        // Estas copias serán inmutables
+
 
 
 
