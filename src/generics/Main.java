@@ -244,7 +244,7 @@ public class Main {
         * <? extends Number> -> se limitará a la clase Number y sus subclases - específicando límite inferior
         * <? super Integer> -> Se limitará a la clase Integer y sus superclases- específicando límite superior
         * */
-        // La variable listNumber podrá recibir cualquier tipo de lista de la clase List y sus subclases
+        // La variable listNumber podrá recibir cualquier tipo de lista de la clase Number y sus subclases
         List<? extends Number> listNumber = li;
 
 
