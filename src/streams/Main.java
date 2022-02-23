@@ -1,6 +1,8 @@
 package streams;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +13,8 @@ public class Main {
         * 1. Se debe envolver la fuente de datos en un Stream
         Ya sea usando el método Stream de la Clase (Arrays, List, cualquier Colección)
         o usando directamente el Api de Stream con InStream.Of(fuenteDatos)
-        *
+        * 2. Una vez envuelta la fuente de datos, se puede acceder a las operaciones, este
+        flujo es conocido como el Stream pipeline
         * Stream pipeline
         * Operaciones intermedias -> Producen un nuevo flujo, no se ejecutan hasta que se
         * indica una operación terminal.
@@ -58,13 +61,28 @@ public class Main {
         *
         * */
 
-        //Ejemplo
+        //Ejemplo creación de flujo a partír del método stream de la interfaz Collection
         List<String> strings = List.of("one", "two", "three", "four");
-        long count = strings.stream()
+        long count = strings.stream() //método stream de la interfaz Collection
+                //stream pipeline
+                //operaciones intermedios
                 .map(String::length)
                 .filter(length -> length == 3)
-                .count();
+                .count(); //operación terminal
+
         System.out.println("count = " + count);
+
+        //Creación de flujo a partir del método of que recibe un vararg de la interfaz Stream
+        Stream<String> strings2 = Stream.of("one", "two", "three", "four");
+        List<String> result = new ArrayList<>();
+
+        strings2.filter(s -> s.length() == 3)
+                .map(String::toUpperCase) // referencia de método de la clase String
+                .forEach(result::add);// referencia de método de List, se añade cada elemento a la lista
+
+        System.out.println("result = " + result);
+
+
     }
 
 
