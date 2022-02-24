@@ -1,7 +1,11 @@
 package streams;
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Main {
@@ -78,9 +82,16 @@ public class Main {
 
         strings2.filter(s -> s.length() == 3)
                 .map(String::toUpperCase) // referencia de método de la clase String
-                .forEach(result::add);// referencia de método de List, se añade cada elemento a la lista
+                .forEach(result::add);// referencia de método add del objeto result, se añade cada elemento a la lista
 
         System.out.println("result = " + result);
+
+        strings2.findFirst().get(); //findfirst método terminal
+        // - termina el flujo y retorna el objeto de tipo Optional
+        // get() es un método de optional que obtiene el objeto que contiene el stream
+
+
+
 
 
     }
